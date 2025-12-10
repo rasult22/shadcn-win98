@@ -7,212 +7,219 @@
 :root {
   --radius: 0.25rem;
   
-  /* Cyberpunk Neon Colors - Softer for eye comfort */
-  --background: oklch(0.12 0.02 270); /* Dark blue-purple instead of pure black */
-  --foreground: oklch(0.88 0.08 330); /* Softer pink text */
+  /* Cyberpunk Base Colors - Softer, more atmospheric */
+  --background: oklch(0.08 0.015 280); /* Deep blue-violet, not pure black */
+  --foreground: oklch(0.85 0.06 320); /* Soft pink-white text */
   
-  --card: oklch(0.15 0.03 270); /* Slightly lighter card with purple tint */
-  --card-foreground: oklch(0.85 0.08 195); /* Softer cyan text */
+  --card: oklch(0.12 0.02 275 / 0.7); /* Semi-transparent card */
+  --card-foreground: oklch(0.88 0.06 200); /* Soft cyan-white */
   
-  --popover: oklch(0.15 0.03 270);
-  --popover-foreground: oklch(0.85 0.08 195);
+  --popover: oklch(0.10 0.02 275 / 0.9);
+  --popover-foreground: oklch(0.88 0.06 200);
   
-  --primary: oklch(0.60 0.22 330); /* Softer magenta */
-  --primary-foreground: oklch(0.95 0 0); /* Light text on bright background */
+  --primary: oklch(0.65 0.20 330); /* Magenta-pink */
+  --primary-foreground: oklch(0.98 0 0);
   
-  --secondary: oklch(0.58 0.15 195); /* Softer cyan */
-  --secondary-foreground: oklch(0.95 0 0);
+  --secondary: oklch(0.62 0.14 200); /* Cyan-teal */
+  --secondary-foreground: oklch(0.98 0 0);
   
-  --muted: oklch(0.20 0.02 270);
-  --muted-foreground: oklch(0.55 0.08 195);
+  --muted: oklch(0.18 0.015 280 / 0.8);
+  --muted-foreground: oklch(0.55 0.06 200);
   
-  --accent: oklch(0.55 0.18 285); /* Softer purple */
-  --accent-foreground: oklch(0.95 0 0);
+  --accent: oklch(0.58 0.16 280); /* Purple */
+  --accent-foreground: oklch(0.98 0 0);
   
-  --destructive: oklch(0.55 0.20 25); /* Softer red */
-  --destructive-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.58 0.18 25); /* Orange-red */
+  --destructive-foreground: oklch(0.98 0 0);
   
-  --border: oklch(0.45 0.15 330); /* Softer pink border */
-  --input: oklch(0.18 0.02 270);
-  --ring: oklch(0.60 0.22 330);
+  --border: oklch(0.40 0.12 320 / 0.6); /* Semi-transparent pink border */
+  --input: oklch(0.14 0.02 280 / 0.6);
+  --ring: oklch(0.65 0.20 330);
   
-  /* Cyberpunk Gradients - Enhanced with multiple color stops */
-  --gradient-primary: linear-gradient(135deg, 
-    oklch(0.60 0.22 330) 0%, 
-    oklch(0.55 0.18 285) 50%,
-    oklch(0.58 0.15 195) 100%);
+  /* ═══════════════════════════════════════════════════════════════
+     ATMOSPHERIC BACKGROUNDS - Fog, Smog, Depth
+     ═══════════════════════════════════════════════════════════════ */
   
-  --gradient-secondary: linear-gradient(135deg, 
-    oklch(0.58 0.15 195) 0%, 
-    oklch(0.55 0.18 285) 50%,
-    oklch(0.60 0.22 330) 100%);
+  /* Main page background - layered for depth */
+  --bg-base: oklch(0.06 0.01 280);
+  --bg-layer-1: radial-gradient(ellipse 120% 80% at 50% 0%, 
+    oklch(0.12 0.03 280) 0%, 
+    transparent 60%);
+  --bg-layer-2: radial-gradient(ellipse 100% 60% at 80% 100%, 
+    oklch(0.10 0.04 320 / 0.4) 0%, 
+    transparent 50%);
+  --bg-layer-3: radial-gradient(ellipse 80% 50% at 10% 80%, 
+    oklch(0.10 0.03 200 / 0.3) 0%, 
+    transparent 50%);
   
-  --gradient-accent: linear-gradient(135deg, 
-    oklch(0.55 0.18 285) 0%, 
-    oklch(0.60 0.22 330) 50%,
-    oklch(0.58 0.15 195) 100%);
+  /* Fog/Smog overlays */
+  --fog-layer: radial-gradient(ellipse 150% 100% at 50% 100%,
+    oklch(0.15 0.02 200 / 0.15) 0%,
+    transparent 70%);
   
-  --gradient-destructive: linear-gradient(135deg,
-    oklch(0.55 0.20 25) 0%,
-    oklch(0.60 0.22 330) 100%);
+  --smog-overlay: 
+    radial-gradient(circle at 20% 80%, oklch(0.12 0.03 320 / 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, oklch(0.12 0.03 200 / 0.08) 0%, transparent 35%),
+    radial-gradient(circle at 60% 60%, oklch(0.10 0.02 280 / 0.12) 0%, transparent 45%);
   
-  --gradient-background: radial-gradient(ellipse at top, 
-    oklch(0.15 0.05 270), 
-    oklch(0.12 0.02 270));
+  /* Grain/noise texture for film-like quality */
+  --grain-overlay: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   
-  /* Animated gradient for special effects */
-  --gradient-animated: linear-gradient(270deg,
-    oklch(0.60 0.22 330),
-    oklch(0.55 0.18 285),
-    oklch(0.58 0.15 195),
-    oklch(0.55 0.18 285),
-    oklch(0.60 0.22 330));
-  
-  /* Grid pattern overlay */
-  --grid-pattern: repeating-linear-gradient(
-    90deg,
-    oklch(0.45 0.15 330 / 0.1) 0px,
-    transparent 1px,
-    transparent 20px
-  );
-  
-  /* Metallic/Chrome Effects */
-  --chrome-gradient: linear-gradient(135deg,
-    oklch(0.85 0.02 270) 0%,
-    oklch(0.65 0.04 270) 25%,
-    oklch(0.85 0.02 270) 50%,
-    oklch(0.65 0.04 270) 75%,
-    oklch(0.85 0.02 270) 100%);
-  
-  --metal-gradient: linear-gradient(180deg,
-    oklch(0.50 0.03 270) 0%,
-    oklch(0.30 0.02 270) 50%,
-    oklch(0.50 0.03 270) 100%);
-  
-  --brushed-metal: repeating-linear-gradient(
-    90deg,
-    oklch(0.45 0.03 270) 0px,
-    oklch(0.50 0.03 270) 1px,
-    oklch(0.45 0.03 270) 2px
-  );
-  
-  /* Holographic/Iridescent Effects */
-  --hologram-gradient: linear-gradient(45deg,
-    oklch(0.60 0.22 330) 0%,   /* Pink */
-    oklch(0.58 0.15 195) 20%,  /* Cyan */
-    oklch(0.55 0.18 285) 40%,  /* Purple */
-    oklch(0.65 0.20 145) 60%,  /* Green */
-    oklch(0.58 0.15 195) 80%,  /* Cyan */
-    oklch(0.60 0.22 330) 100%);/* Pink */
-  
-  --hologram-shimmer: linear-gradient(135deg,
-    transparent 0%,
-    oklch(0.80 0.15 195 / 0.3) 25%,
-    transparent 50%,
-    oklch(0.80 0.15 330 / 0.3) 75%,
-    transparent 100%);
-  
-  /* Atmospheric Effects */
-  --fog-overlay: radial-gradient(ellipse at center,
-    transparent 0%,
-    oklch(0.15 0.05 270 / 0.3) 50%,
-    oklch(0.12 0.02 270 / 0.6) 100%);
-  
-  --smog-texture: repeating-radial-gradient(
-    circle at 0% 0%,
-    oklch(0.15 0.05 270 / 0.05) 0px,
-    transparent 10px,
-    oklch(0.12 0.02 270 / 0.05) 20px
-  );
-  
-  /* Noise/Grunge Texture */
-  --noise-pattern: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-  
-  --scanline: repeating-linear-gradient(
+  /* Scanlines for CRT effect */
+  --scanlines: repeating-linear-gradient(
     0deg,
-    oklch(0.15 0.05 270 / 0.03) 0px,
+    oklch(0 0 0 / 0.03) 0px,
     transparent 1px,
-    transparent 2px
+    transparent 3px
   );
   
-  /* Glow with chromatic aberration */
-  --chrome-glow: 
-    0 0 2px oklch(0.58 0.15 195 / 0.8),  /* Cyan */
-    0 0 4px oklch(0.60 0.22 330 / 0.6),  /* Pink */
-    0 0 8px oklch(0.55 0.18 285 / 0.4);  /* Purple */
+  /* ═══════════════════════════════════════════════════════════════
+     METALLIC / CHROME EFFECTS
+     ═══════════════════════════════════════════════════════════════ */
   
+  --chrome-gradient: linear-gradient(135deg,
+    oklch(0.75 0.02 280) 0%,
+    oklch(0.50 0.03 280) 20%,
+    oklch(0.85 0.01 280) 40%,
+    oklch(0.45 0.03 280) 60%,
+    oklch(0.75 0.02 280) 80%,
+    oklch(0.55 0.03 280) 100%);
   
-  /* Cyberpunk Glow Effects - Softer */
-  --glow-primary: 0 0 3px oklch(0.60 0.22 330 / 0.7),
-                  0 0 8px oklch(0.60 0.22 330 / 0.5),
-                  0 0 15px oklch(0.60 0.22 330 / 0.3),
-                  0 0 30px oklch(0.60 0.22 330 / 0.2);
+  --brushed-metal: 
+    repeating-linear-gradient(
+      90deg,
+      oklch(0.40 0.02 280 / 0.3) 0px,
+      oklch(0.50 0.02 280 / 0.2) 1px,
+      oklch(0.35 0.02 280 / 0.3) 2px
+    ),
+    linear-gradient(180deg,
+      oklch(0.45 0.03 280) 0%,
+      oklch(0.30 0.02 280) 50%,
+      oklch(0.42 0.03 280) 100%);
   
-  --glow-secondary: 0 0 3px oklch(0.58 0.15 195 / 0.7),
-                    0 0 8px oklch(0.58 0.15 195 / 0.5),
-                    0 0 15px oklch(0.58 0.15 195 / 0.3),
-                    0 0 30px oklch(0.58 0.15 195 / 0.2);
+  --metal-edge: linear-gradient(90deg,
+    oklch(0.60 0.02 280) 0%,
+    oklch(0.35 0.02 280) 50%,
+    oklch(0.55 0.02 280) 100%);
   
-  --glow-accent: 0 0 3px oklch(0.55 0.18 285 / 0.7),
-                 0 0 8px oklch(0.55 0.18 285 / 0.5),
-                 0 0 15px oklch(0.55 0.18 285 / 0.3),
-                 0 0 30px oklch(0.55 0.18 285 / 0.2);
+  /* ═══════════════════════════════════════════════════════════════
+     HOLOGRAPHIC / IRIDESCENT EFFECTS
+     ═══════════════════════════════════════════════════════════════ */
   
-  --glow-destructive: 0 0 3px oklch(0.55 0.20 25 / 0.7),
-                      0 0 8px oklch(0.55 0.20 25 / 0.5),
-                      0 0 15px oklch(0.55 0.20 25 / 0.3),
-                      0 0 30px oklch(0.55 0.20 25 / 0.2);
+  --hologram-gradient: linear-gradient(
+    135deg,
+    oklch(0.65 0.18 330) 0%,
+    oklch(0.60 0.14 200) 25%,
+    oklch(0.58 0.16 280) 50%,
+    oklch(0.65 0.18 145) 75%,
+    oklch(0.62 0.14 200) 100%
+  );
   
-  --glow-success: 0 0 3px oklch(0.65 0.20 145 / 0.7),
-                  0 0 8px oklch(0.65 0.20 145 / 0.5),
-                  0 0 15px oklch(0.65 0.20 145 / 0.3),
-                  0 0 30px oklch(0.65 0.20 145 / 0.2);
+  --hologram-shimmer: linear-gradient(
+    110deg,
+    transparent 20%,
+    oklch(0.90 0.10 200 / 0.2) 40%,
+    oklch(0.90 0.10 330 / 0.2) 60%,
+    transparent 80%
+  );
   
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* ═══════════════════════════════════════════════════════════════
+     GLASSMORPHISM
+     ═══════════════════════════════════════════════════════════════ */
   
-  --sidebar: oklch(0.08 0 0);
-  --sidebar-foreground: oklch(0.95 0.12 195);
-  --sidebar-primary: oklch(0.65 0.28 330);
-  --sidebar-primary-foreground: oklch(0.05 0 0);
-  --sidebar-accent: oklch(0.60 0.22 285);
-  --sidebar-accent-foreground: oklch(0.05 0 0);
-  --sidebar-border: oklch(0.50 0.20 330);
-  --sidebar-ring: oklch(0.65 0.28 330);
+  --glass-bg: oklch(0.12 0.02 280 / 0.4);
+  --glass-border: linear-gradient(
+    135deg,
+    oklch(0.50 0.10 320 / 0.5) 0%,
+    oklch(0.30 0.05 280 / 0.3) 50%,
+    oklch(0.45 0.08 200 / 0.4) 100%
+  );
+  --glass-highlight: linear-gradient(
+    135deg,
+    oklch(0.90 0.05 200 / 0.1) 0%,
+    transparent 50%
+  );
+  
+  /* ═══════════════════════════════════════════════════════════════
+     ENHANCED GLOW EFFECTS - Softer, more diffused
+     ═══════════════════════════════════════════════════════════════ */
+  
+  --glow-primary: 
+    0 0 4px oklch(0.65 0.20 330 / 0.6),
+    0 0 12px oklch(0.65 0.20 330 / 0.4),
+    0 0 24px oklch(0.65 0.20 330 / 0.2),
+    0 0 48px oklch(0.65 0.20 330 / 0.1);
+  
+  --glow-secondary: 
+    0 0 4px oklch(0.62 0.14 200 / 0.6),
+    0 0 12px oklch(0.62 0.14 200 / 0.4),
+    0 0 24px oklch(0.62 0.14 200 / 0.2),
+    0 0 48px oklch(0.62 0.14 200 / 0.1);
+  
+  --glow-accent: 
+    0 0 4px oklch(0.58 0.16 280 / 0.6),
+    0 0 12px oklch(0.58 0.16 280 / 0.4),
+    0 0 24px oklch(0.58 0.16 280 / 0.2);
+  
+  --glow-destructive: 
+    0 0 4px oklch(0.58 0.18 25 / 0.6),
+    0 0 12px oklch(0.58 0.18 25 / 0.4),
+    0 0 24px oklch(0.58 0.18 25 / 0.2);
+  
+  --glow-success: 
+    0 0 4px oklch(0.62 0.18 145 / 0.6),
+    0 0 12px oklch(0.62 0.18 145 / 0.4),
+    0 0 24px oklch(0.62 0.18 145 / 0.2);
+
+  --glow-soft: 
+    0 4px 20px oklch(0 0 0 / 0.5),
+    0 0 40px oklch(0.65 0.20 330 / 0.1);
+  
+  /* ═══════════════════════════════════════════════════════════════
+     GRADIENTS - Multi-color, diffused
+     ═══════════════════════════════════════════════════════════════ */
+  
+  --gradient-primary: linear-gradient(
+    135deg, 
+    oklch(0.65 0.20 330) 0%, 
+    oklch(0.58 0.16 280) 50%,
+    oklch(0.62 0.14 200) 100%
+  );
+  
+  --gradient-secondary: linear-gradient(
+    135deg, 
+    oklch(0.62 0.14 200) 0%, 
+    oklch(0.58 0.16 280) 50%,
+    oklch(0.65 0.20 330) 100%
+  );
+  
+  --gradient-accent: linear-gradient(
+    135deg, 
+    oklch(0.58 0.16 280) 0%, 
+    oklch(0.65 0.20 330) 50%,
+    oklch(0.62 0.14 200) 100%
+  );
+  
+  /* Charts */
+  --chart-1: oklch(0.65 0.20 330);
+  --chart-2: oklch(0.62 0.14 200);
+  --chart-3: oklch(0.58 0.16 280);
+  --chart-4: oklch(0.62 0.18 145);
+  --chart-5: oklch(0.58 0.18 25);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.06 0.015 280 / 0.9);
+  --sidebar-foreground: oklch(0.88 0.06 200);
+  --sidebar-primary: oklch(0.65 0.20 330);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.58 0.16 280);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.40 0.12 320 / 0.4);
+  --sidebar-ring: oklch(0.65 0.20 330);
 }
 
 .dark {
-  /* Dark mode is default for cyberpunk - same values */
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(0.95 0.15 330);
-  --card: oklch(0.08 0 0);
-  --card-foreground: oklch(0.95 0.12 195);
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(0.95 0.12 195);
-  --primary: oklch(0.65 0.28 330);
-  --primary-foreground: oklch(0.05 0 0);
-  --secondary: oklch(0.65 0.18 195);
-  --secondary-foreground: oklch(0.05 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.60 0.10 195);
-  --accent: oklch(0.60 0.22 285);
-  --accent-foreground: oklch(0.05 0 0);
-  --destructive: oklch(0.60 0.25 25);
-  --destructive-foreground: oklch(0.05 0 0);
-  --border: oklch(0.50 0.20 330);
-  --input: oklch(0.20 0 0);
-  --ring: oklch(0.65 0.28 330);
-  --sidebar: oklch(0.08 0 0);
-  --sidebar-foreground: oklch(0.95 0.12 195);
-  --sidebar-primary: oklch(0.65 0.28 330);
-  --sidebar-primary-foreground: oklch(0.05 0 0);
-  --sidebar-accent: oklch(0.60 0.22 285);
-  --sidebar-accent-foreground: oklch(0.05 0 0);
-  --sidebar-border: oklch(0.50 0.20 330);
-  --sidebar-ring: oklch(0.65 0.28 330);
+  /* Dark mode uses same values - cyberpunk is always dark */
 }
 
 
@@ -254,45 +261,264 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES - Atmospheric background
+   ═══════════════════════════════════════════════════════════════ */
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+    background-color: var(--bg-base);
+    background-image: 
+      var(--scanlines),
+      var(--smog-overlay),
+      var(--fog-layer),
+      var(--bg-layer-3),
+      var(--bg-layer-2),
+      var(--bg-layer-1);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  
+  /* Grain overlay via pseudo-element for animation */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: var(--grain-overlay);
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    animation: grain-shift 8s steps(10) infinite;
   }
 }
 
-/* Cyberpunk Animations */
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY CLASSES - Glassmorphism, Metal, Hologram
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer utilities {
+  /* Glassmorphism panel */
+  .cyber-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(1.5);
+    -webkit-backdrop-filter: blur(16px) saturate(1.5);
+    border: 1px solid oklch(0.50 0.10 320 / 0.3);
+    box-shadow: 
+      inset 0 1px 0 oklch(1 0 0 / 0.05),
+      inset 0 -1px 0 oklch(0 0 0 / 0.1),
+      0 8px 32px oklch(0 0 0 / 0.4);
+  }
+  
+  .cyber-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--glass-highlight);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  
+  /* Metallic/Chrome surface */
+  .cyber-metal {
+    background: var(--brushed-metal);
+    border: 1px solid oklch(0.55 0.02 280);
+    box-shadow:
+      inset 0 1px 0 oklch(0.70 0.02 280 / 0.5),
+      inset 0 -1px 0 oklch(0.20 0.02 280),
+      0 2px 8px oklch(0 0 0 / 0.5);
+  }
+  
+  /* Chrome reflective */
+  .cyber-chrome {
+    background: var(--chrome-gradient);
+    background-size: 200% 200%;
+    border: 1px solid oklch(0.60 0.02 280);
+    box-shadow:
+      inset 0 1px 0 oklch(0.90 0.01 0 / 0.3),
+      0 2px 12px oklch(0 0 0 / 0.4);
+    animation: chrome-shift 20s ease-in-out infinite;
+  }
+  
+  /* Holographic/Iridescent */
+  .cyber-hologram {
+    background: var(--hologram-gradient);
+    background-size: 300% 300%;
+    animation: hologram-shift 25s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cyber-hologram::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hologram-shimmer);
+    background-size: 200% 100%;
+    animation: shimmer-move 3s linear infinite;
+    pointer-events: none;
+  }
+  
+  /* Fog/Haze effect for containers */
+  .cyber-fog {
+    position: relative;
+  }
+  
+  .cyber-fog::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 100% 50% at 50% 100%,
+      oklch(0.20 0.03 200 / 0.3) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    animation: fog-drift 10s ease-in-out infinite;
+  }
+  
+  /* Neon text glow */
+  .text-glow-primary {
+    text-shadow: 
+      0 0 4px oklch(0.65 0.20 330 / 0.8),
+      0 0 12px oklch(0.65 0.20 330 / 0.5),
+      0 0 24px oklch(0.65 0.20 330 / 0.3);
+  }
+  
+  .text-glow-secondary {
+    text-shadow: 
+      0 0 4px oklch(0.62 0.14 200 / 0.8),
+      0 0 12px oklch(0.62 0.14 200 / 0.5),
+      0 0 24px oklch(0.62 0.14 200 / 0.3);
+  }
+  
+  .text-glow-accent {
+    text-shadow: 
+      0 0 4px oklch(0.58 0.16 280 / 0.8),
+      0 0 12px oklch(0.58 0.16 280 / 0.5),
+      0 0 24px oklch(0.58 0.16 280 / 0.3);
+  }
+  
+  /* Gradient border wrapper */
+  .border-gradient {
+    position: relative;
+    background: var(--glass-bg);
+    border-radius: var(--radius);
+  }
+  
+  .border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--glass-border);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -2%); }
+  20% { transform: translate(2%, 2%); }
+  30% { transform: translate(-1%, 1%); }
+  40% { transform: translate(1%, -1%); }
+  50% { transform: translate(-2%, 2%); }
+  60% { transform: translate(2%, -2%); }
+  70% { transform: translate(-1%, -1%); }
+  80% { transform: translate(1%, 1%); }
+  90% { transform: translate(0, -1%); }
+}
+
+@keyframes hologram-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes chrome-shift {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+
+/* Slow animation utility classes */
+.animate-hologram-slow {
+  animation: hologram-shift 60s linear infinite;
+}
+
+.animate-chrome-slow {
+  animation: chrome-shift 45s linear infinite;
+}
+
+@keyframes shimmer-move {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fog-drift {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: translateY(0) scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: translateY(-5%) scale(1.02);
+  }
+}
+
 @keyframes cyberpunk-pulse {
   0%, 100% {
     opacity: 1;
     filter: brightness(1);
   }
   50% {
-    opacity: 0.8;
-    filter: brightness(1.2);
+    opacity: 0.85;
+    filter: brightness(1.15);
   }
 }
 
 @keyframes cyberpunk-glow {
   0%, 100% {
     filter: brightness(1) contrast(1);
+    box-shadow: var(--glow-primary);
   }
   50% {
-    filter: brightness(1.3) contrast(1.1);
+    filter: brightness(1.2) contrast(1.05);
+    box-shadow: 
+      0 0 8px oklch(0.65 0.20 330 / 0.8),
+      0 0 20px oklch(0.65 0.20 330 / 0.6),
+      0 0 40px oklch(0.65 0.20 330 / 0.4);
   }
 }
 
 @keyframes cyberpunk-flicker {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.95;
-  }
-  75% {
-    opacity: 0.98;
-  }
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+

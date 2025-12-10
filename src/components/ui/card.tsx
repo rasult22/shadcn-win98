@@ -7,7 +7,16 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card"
       className={cn(
-        "bg-card/80 text-card-foreground flex flex-col gap-6 rounded-sm border-2 border-dashed border-border py-6 shadow-sm [box-shadow:0_0_5px_var(--border),0_0_10px_var(--border)] [background-image:radial-gradient(ellipse_at_top,oklch(0.18_0.05_270),oklch(0.15_0.03_270))]",
+        "relative flex flex-col gap-6 rounded-sm py-6",
+        // Glassmorphism base
+        "bg-[oklch(0.10_0.02_280_/_0.5)] backdrop-blur-xl",
+        // Gradient border effect
+        "border border-[oklch(0.45_0.10_320_/_0.3)]",
+        // Inner highlight and shadows for depth
+        "shadow-[inset_0_1px_0_oklch(1_0_0_/_0.03),inset_0_-1px_0_oklch(0_0_0_/_0.1),0_8px_32px_oklch(0_0_0_/_0.4),0_0_60px_oklch(0.65_0.20_330_/_0.05)]",
+        // Metal edge accent
+        "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-[oklch(0.60_0.10_320_/_0.5)] before:to-transparent",
+        "after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-[oklch(0.50_0.08_200_/_0.3)] after:to-transparent",
         className
       )}
       {...props}

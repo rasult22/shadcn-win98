@@ -10,30 +10,30 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b-2 border-dashed border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 [box-shadow:0_0_10px_var(--border)]">
+      <header className="sticky top-0 z-50 border-b border-[oklch(0.40_0.10_320_/_0.3)] bg-[oklch(0.08_0.015_280_/_0.8)] backdrop-blur-xl shadow-[0_4px_30px_oklch(0_0_0_/_0.3),0_0_40px_oklch(0.65_0.20_330_/_0.05)]">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-2">
-            <div className="text-xl font-bold uppercase tracking-wider [text-shadow:0_0_10px_var(--primary)]">
+            <div className="text-xl font-bold uppercase tracking-wider text-glow-primary">
               <span className="text-primary">CYBER</span>
               <span className="text-secondary">DEV</span>
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#hero" className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors [text-shadow:0_0_5px_currentColor]">Home</a>
-            <a href="#about" className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors [text-shadow:0_0_5px_currentColor]">About</a>
-            <a href="#projects" className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors [text-shadow:0_0_5px_currentColor]">Projects</a>
-            <a href="#contact" className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors [text-shadow:0_0_5px_currentColor]">Contact</a>
+            <a href="#hero" className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-all duration-300 hover:[text-shadow:0_0_8px_oklch(0.65_0.20_330_/_0.6)]">Home</a>
+            <a href="#about" className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-all duration-300 hover:[text-shadow:0_0_8px_oklch(0.65_0.20_330_/_0.6)]">About</a>
+            <a href="#projects" className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-all duration-300 hover:[text-shadow:0_0_8px_oklch(0.65_0.20_330_/_0.6)]">Projects</a>
+            <a href="#contact" className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-all duration-300 hover:[text-shadow:0_0_8px_oklch(0.65_0.20_330_/_0.6)]">Contact</a>
           </nav>
-          <Button size="sm">Hire Me</Button>
+          <Button size="sm" variant="hologram">Hire Me</Button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="relative py-20 md:py-32">
+      <section id="hero" className="relative py-20 md:py-32 cyber-fog">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <Badge className="mb-4">Full Stack Developer</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold uppercase tracking-wider mb-6 [text-shadow:0_0_15px_var(--primary)]">
+            <Badge variant="hologram" className="mb-4">Full Stack Developer</Badge>
+            <h1 className="text-4xl md:text-6xl font-bold uppercase tracking-wider mb-6 text-glow-primary">
               Building The <span className="text-primary">Future</span> With{" "}
               <span className="text-secondary">Code</span>
             </h1>
@@ -43,13 +43,14 @@ export default function Portfolio() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg">View Projects</Button>
-              <Button size="lg" variant="outline">Download CV</Button>
+              <Button size="lg" variant="metal">Download CV</Button>
+              <Button size="lg" variant="hologram">Contact</Button>
             </div>
           </div>
         </div>
         
-        {/* Decorative grid */}
-        <div className="absolute inset-0 -z-10 opacity-20 [background-image:repeating-linear-gradient(90deg,oklch(0.45_0.15_330_/_0.1)_0px,transparent_1px,transparent_40px)]" />
+        {/* Decorative atmospheric overlay */}
+        <div className="absolute inset-0 -z-10 opacity-30 [background-image:radial-gradient(circle_at_30%_20%,oklch(0.65_0.20_330_/_0.1)_0%,transparent_40%),radial-gradient(circle_at_70%_80%,oklch(0.62_0.14_200_/_0.08)_0%,transparent_35%)]" />
       </section>
 
       <Separator className="my-8" />
