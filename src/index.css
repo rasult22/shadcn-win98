@@ -7,60 +7,66 @@
 :root {
   --radius: 0.25rem;
   
-  /* Cyberpunk Neon Colors */
-  --background: oklch(0.05 0 0); /* Deep black */
-  --foreground: oklch(0.95 0.15 330); /* Neon pink text */
+  /* Cyberpunk Neon Colors - Softer for eye comfort */
+  --background: oklch(0.12 0.02 270); /* Dark blue-purple instead of pure black */
+  --foreground: oklch(0.88 0.08 330); /* Softer pink text */
   
-  --card: oklch(0.08 0 0); /* Very dark card background */
-  --card-foreground: oklch(0.95 0.12 195); /* Cyan text */
+  --card: oklch(0.15 0.03 270); /* Slightly lighter card with purple tint */
+  --card-foreground: oklch(0.85 0.08 195); /* Softer cyan text */
   
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(0.95 0.12 195);
+  --popover: oklch(0.15 0.03 270);
+  --popover-foreground: oklch(0.85 0.08 195);
   
-  --primary: oklch(0.65 0.28 330); /* Neon magenta */
-  --primary-foreground: oklch(0.05 0 0); /* Black text on bright background */
+  --primary: oklch(0.60 0.22 330); /* Softer magenta */
+  --primary-foreground: oklch(0.95 0 0); /* Light text on bright background */
   
-  --secondary: oklch(0.65 0.18 195); /* Cyan */
-  --secondary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.58 0.15 195); /* Softer cyan */
+  --secondary-foreground: oklch(0.95 0 0);
   
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.60 0.10 195);
+  --muted: oklch(0.20 0.02 270);
+  --muted-foreground: oklch(0.55 0.08 195);
   
-  --accent: oklch(0.60 0.22 285); /* Purple */
-  --accent-foreground: oklch(0.05 0 0);
+  --accent: oklch(0.55 0.18 285); /* Softer purple */
+  --accent-foreground: oklch(0.95 0 0);
   
-  --destructive: oklch(0.60 0.25 25); /* Neon red */
-  --destructive-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.55 0.20 25); /* Softer red */
+  --destructive-foreground: oklch(0.95 0 0);
   
-  --border: oklch(0.50 0.20 330); /* Neon pink border */
-  --input: oklch(0.20 0 0);
-  --ring: oklch(0.65 0.28 330);
+  --border: oklch(0.45 0.15 330); /* Softer pink border */
+  --input: oklch(0.18 0.02 270);
+  --ring: oklch(0.60 0.22 330);
   
-  /* Cyberpunk Glow Effects */
-  --glow-primary: 0 0 5px oklch(0.65 0.28 330),
-                  0 0 10px oklch(0.65 0.28 330),
-                  0 0 20px oklch(0.65 0.28 330),
-                  0 0 40px oklch(0.65 0.28 330 / 0.5);
+  /* Cyberpunk Gradients - for backgrounds */
+  --gradient-primary: linear-gradient(135deg, oklch(0.60 0.22 330) 0%, oklch(0.55 0.18 285) 100%);
+  --gradient-secondary: linear-gradient(135deg, oklch(0.58 0.15 195) 0%, oklch(0.55 0.18 285) 100%);
+  --gradient-accent: linear-gradient(135deg, oklch(0.55 0.18 285) 0%, oklch(0.60 0.22 330) 100%);
+  --gradient-background: radial-gradient(ellipse at top, oklch(0.15 0.05 270), oklch(0.12 0.02 270));
   
-  --glow-secondary: 0 0 5px oklch(0.65 0.18 195),
-                    0 0 10px oklch(0.65 0.18 195),
-                    0 0 20px oklch(0.65 0.18 195),
-                    0 0 40px oklch(0.65 0.18 195 / 0.5);
+  /* Cyberpunk Glow Effects - Softer */
+  --glow-primary: 0 0 3px oklch(0.60 0.22 330 / 0.7),
+                  0 0 8px oklch(0.60 0.22 330 / 0.5),
+                  0 0 15px oklch(0.60 0.22 330 / 0.3),
+                  0 0 30px oklch(0.60 0.22 330 / 0.2);
   
-  --glow-accent: 0 0 5px oklch(0.60 0.22 285),
-                 0 0 10px oklch(0.60 0.22 285),
-                 0 0 20px oklch(0.60 0.22 285),
-                 0 0 40px oklch(0.60 0.22 285 / 0.5);
+  --glow-secondary: 0 0 3px oklch(0.58 0.15 195 / 0.7),
+                    0 0 8px oklch(0.58 0.15 195 / 0.5),
+                    0 0 15px oklch(0.58 0.15 195 / 0.3),
+                    0 0 30px oklch(0.58 0.15 195 / 0.2);
   
-  --glow-destructive: 0 0 5px oklch(0.60 0.25 25),
-                      0 0 10px oklch(0.60 0.25 25),
-                      0 0 20px oklch(0.60 0.25 25),
-                      0 0 40px oklch(0.60 0.25 25 / 0.5);
+  --glow-accent: 0 0 3px oklch(0.55 0.18 285 / 0.7),
+                 0 0 8px oklch(0.55 0.18 285 / 0.5),
+                 0 0 15px oklch(0.55 0.18 285 / 0.3),
+                 0 0 30px oklch(0.55 0.18 285 / 0.2);
   
-  --glow-success: 0 0 5px oklch(0.70 0.25 145),
-                  0 0 10px oklch(0.70 0.25 145),
-                  0 0 20px oklch(0.70 0.25 145),
-                  0 0 40px oklch(0.70 0.25 145 / 0.5);
+  --glow-destructive: 0 0 3px oklch(0.55 0.20 25 / 0.7),
+                      0 0 8px oklch(0.55 0.20 25 / 0.5),
+                      0 0 15px oklch(0.55 0.20 25 / 0.3),
+                      0 0 30px oklch(0.55 0.20 25 / 0.2);
+  
+  --glow-success: 0 0 3px oklch(0.65 0.20 145 / 0.7),
+                  0 0 8px oklch(0.65 0.20 145 / 0.5),
+                  0 0 15px oklch(0.65 0.20 145 / 0.3),
+                  0 0 30px oklch(0.65 0.20 145 / 0.2);
   
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
