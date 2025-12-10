@@ -2,14 +2,51 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-function Empty({ className, ...props }: React.ComponentProps<"div">) {
+const emptyVariants = cva(
+  "flex min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-lg p-6 text-center text-balance md:p-12 border",
+  {
+    variants: {
+      variant: {
+        default: [
+          "bg-[oklch(0.10_0.02_280_/_0.3)] backdrop-blur-md",
+          "border-dashed border-[oklch(0.40_0.10_320_/_0.3)]",
+        ],
+        metal: [
+          "bg-[oklch(0.20_0.02_280)]",
+          "border-[oklch(0.40_0.02_280)]",
+          "shadow-[inset_0_2px_8px_oklch(0_0_0_/_0.2)]",
+        ],
+        sandstorm: [
+          "bg-[oklch(0.16_0.03_50_/_0.4)]",
+          "border-dashed border-[oklch(0.35_0.06_50_/_0.4)]",
+        ],
+        smog: [
+          "bg-[oklch(0.08_0.015_200_/_0.4)]",
+          "border-dashed border-[oklch(0.25_0.04_200_/_0.4)]",
+        ],
+        fog: [
+          "bg-[oklch(0.10_0.01_280_/_0.25)] backdrop-blur-2xl",
+          "border-dashed border-[oklch(0.30_0.04_320_/_0.2)]",
+        ],
+        hologram: [
+          "bg-[oklch(0.12_0.03_200_/_0.3)] backdrop-blur-md",
+          "border-dashed border-[oklch(0.40_0.08_200_/_0.4)]",
+        ],
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+interface EmptyProps extends React.ComponentProps<"div">, VariantProps<typeof emptyVariants> {}
+
+function Empty({ className, variant, ...props }: EmptyProps) {
   return (
     <div
       data-slot="empty"
-      className={cn(
-        "flex min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-lg border-dashed p-6 text-center text-balance md:p-12",
-        className
-      )}
+      className={cn(emptyVariants({ variant }), className)}
       {...props}
     />
   )
@@ -34,7 +71,7 @@ const emptyMediaVariants = cva(
     variants: {
       variant: {
         default: "bg-transparent",
-        icon: "bg-muted text-foreground flex size-10 shrink-0 items-center justify-center rounded-lg [&_svg:not([class*='size-'])]:size-6",
+        icon: "bg-muted/30 text-foreground flex size-10 shrink-0 items-center justify-center rounded-lg [&_svg:not([class*='size-'])]:size-6 backdrop-blur-sm shadow-[0_0_10px_oklch(0.40_0.10_320_/_0.2)]",
       },
     },
     defaultVariants: {
@@ -101,4 +138,5 @@ export {
   EmptyDescription,
   EmptyContent,
   EmptyMedia,
+  emptyVariants,
 }

@@ -249,16 +249,52 @@ export default function ComponentShowcase() {
       </ComponentSection>
 
       {/* Alert & Alert Dialog */}
-      <ComponentSection title="Alert & Alert Dialog">
-        <div className="space-y-4">
+      <ComponentSection title="Alert Variants">
+        <div className="grid md:grid-cols-2 gap-4">
           <Alert>
             <Info className="h-4 w-4" />
-            <AlertTitle>Heads up!</AlertTitle>
-            <AlertDescription>
-              You can add components to your app using the cli.
-            </AlertDescription>
+            <AlertTitle>Default</AlertTitle>
+            <AlertDescription>Default glassmorphism alert style.</AlertDescription>
           </Alert>
 
+          <Alert variant="destructive">
+            <Info className="h-4 w-4" />
+            <AlertTitle>Destructive</AlertTitle>
+            <AlertDescription>Error or warning alert style.</AlertDescription>
+          </Alert>
+
+          <Alert variant="metal">
+            <Info className="h-4 w-4" />
+            <AlertTitle>Metal</AlertTitle>
+            <AlertDescription>Chrome/brushed metal effect.</AlertDescription>
+          </Alert>
+
+          <Alert variant="sandstorm">
+            <Info className="h-4 w-4" />
+            <AlertTitle>Sandstorm</AlertTitle>
+            <AlertDescription>Warm desert dust atmosphere.</AlertDescription>
+          </Alert>
+
+          <Alert variant="smog">
+            <Info className="h-4 w-4" />
+            <AlertTitle>Smog</AlertTitle>
+            <AlertDescription>Dark industrial haze with teal.</AlertDescription>
+          </Alert>
+
+          <Alert variant="fog">
+            <Info className="h-4 w-4" />
+            <AlertTitle>Fog</AlertTitle>
+            <AlertDescription>Light ethereal mist effect.</AlertDescription>
+          </Alert>
+
+          <Alert variant="hologram">
+            <Info className="h-4 w-4" />
+            <AlertTitle>Hologram</AlertTitle>
+            <AlertDescription>Iridescent color-shifting surface.</AlertDescription>
+          </Alert>
+        </div>
+
+        <div className="mt-6">
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <Button variant="outline">Show Alert Dialog</Button>
@@ -305,11 +341,13 @@ export default function ComponentShowcase() {
       {/* Badge & Breadcrumb */}
       <ComponentSection title="Badge & Breadcrumb">
         <div className="space-y-4">
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Badge>Default</Badge>
             <Badge variant="secondary">Secondary</Badge>
             <Badge variant="destructive">Destructive</Badge>
             <Badge variant="outline">Outline</Badge>
+            <Badge variant="hologram">Hologram</Badge>
+            <Badge variant="metal">Metal</Badge>
           </div>
 
           <Breadcrumb>
@@ -340,6 +378,8 @@ export default function ComponentShowcase() {
             <Button variant="outline">Outline</Button>
             <Button variant="ghost">Ghost</Button>
             <Button variant="link">Link</Button>
+            <Button variant="hologram">Hologram</Button>
+            <Button variant="metal">Metal</Button>
           </div>
 
           <ButtonGroup>
@@ -363,19 +403,68 @@ export default function ComponentShowcase() {
       </ComponentSection>
 
       {/* Card */}
-      <ComponentSection title="Card">
-        <Card>
-          <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card Description</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Card content goes here.</p>
-          </CardContent>
-          <CardFooter>
-            <Button>Action</Button>
-          </CardFooter>
-        </Card>
+      <ComponentSection title="Card Variants">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Default (Glass)</CardTitle>
+              <CardDescription>Glassmorphism effect</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">Default card with backdrop blur and gradient border.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="metal">
+            <CardHeader>
+              <CardTitle>Metal</CardTitle>
+              <CardDescription>Chrome/brushed metal</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">Metallic surface with animated gradient.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="sandstorm">
+            <CardHeader>
+              <CardTitle>Sandstorm</CardTitle>
+              <CardDescription>Desert dust theme</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">Warm dusty atmosphere with sand tones.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="smog">
+            <CardHeader>
+              <CardTitle>Smog</CardTitle>
+              <CardDescription>Dark industrial haze</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">Dense smog with teal undertones.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="fog">
+            <CardHeader>
+              <CardTitle>Fog</CardTitle>
+              <CardDescription>Ethereal mist</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">Light fog with animated drift effect.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="hologram">
+            <CardHeader>
+              <CardTitle>Hologram</CardTitle>
+              <CardDescription>Iridescent shifting</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">Color-shifting holographic surface.</p>
+            </CardContent>
+          </Card>
+        </div>
       </ComponentSection>
 
       {/* Carousel */}
@@ -399,19 +488,36 @@ export default function ComponentShowcase() {
         </Carousel>
       </ComponentSection>
 
-      {/* Checkbox & Collapsible */}
-      <ComponentSection title="Checkbox & Collapsible">
-        <div className="space-y-4">
+      {/* Checkbox Variants */}
+      <ComponentSection title="Checkbox Variants">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="flex items-center space-x-2">
-            <Checkbox id="terms" />
-            <label
-              htmlFor="terms"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              Accept terms and conditions
-            </label>
+            <Checkbox id="cb-default" />
+            <label htmlFor="cb-default" className="text-sm">Default</label>
           </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="cb-metal" variant="metal" />
+            <label htmlFor="cb-metal" className="text-sm">Metal</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="cb-sandstorm" variant="sandstorm" />
+            <label htmlFor="cb-sandstorm" className="text-sm">Sandstorm</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="cb-smog" variant="smog" />
+            <label htmlFor="cb-smog" className="text-sm">Smog</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="cb-fog" variant="fog" />
+            <label htmlFor="cb-fog" className="text-sm">Fog</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox id="cb-hologram" variant="hologram" />
+            <label htmlFor="cb-hologram" className="text-sm">Hologram</label>
+          </div>
+        </div>
 
+        <div className="mt-6">
           <Collapsible>
             <CollapsibleTrigger asChild>
               <Button variant="outline" className="w-full justify-between">
@@ -565,12 +671,34 @@ export default function ComponentShowcase() {
 
       {/* Input, Input OTP, Input Group */}
       <ComponentSection title="Input Variants">
-        <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
           <div>
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="Email" />
+            <Label>Default</Label>
+            <Input placeholder="Default glassmorphism input" />
           </div>
+          <div>
+            <Label>Metal</Label>
+            <Input variant="metal" placeholder="Brushed metal input" />
+          </div>
+          <div>
+            <Label>Sandstorm</Label>
+            <Input variant="sandstorm" placeholder="Desert dust input" />
+          </div>
+          <div>
+            <Label>Smog</Label>
+            <Input variant="smog" placeholder="Industrial haze input" />
+          </div>
+          <div>
+            <Label>Fog</Label>
+            <Input variant="fog" placeholder="Ethereal mist input" />
+          </div>
+          <div>
+            <Label>Hologram</Label>
+            <Input variant="hologram" placeholder="Iridescent input" />
+          </div>
+        </div>
 
+        <div className="space-y-4">
           <div>
             <Label>Input OTP</Label>
             <InputOTP maxLength={6}>
@@ -722,33 +850,86 @@ export default function ComponentShowcase() {
         </Popover>
       </ComponentSection>
 
-      {/* Progress */}
-      <ComponentSection title="Progress">
-        <div className="space-y-2">
-          <Progress value={progress} className="w-full" />
-          <div className="flex gap-2">
-            <Button onClick={() => setProgress(Math.max(0, progress - 10))}>
-              Decrease
-            </Button>
-            <Button onClick={() => setProgress(Math.min(100, progress + 10))}>
-              Increase
-            </Button>
+      {/* Progress Variants */}
+      <ComponentSection title="Progress Variants">
+        <div className="space-y-4">
+          <div>
+            <Label>Default</Label>
+            <Progress value={progress} variant="default" />
+          </div>
+          <div>
+            <Label>Metal</Label>
+            <Progress value={progress} variant="metal" />
+          </div>
+          <div>
+            <Label>Sandstorm</Label>
+            <Progress value={progress} variant="sandstorm" />
+          </div>
+          <div>
+            <Label>Smog</Label>
+            <Progress value={progress} variant="smog" />
+          </div>
+          <div>
+            <Label>Fog</Label>
+            <Progress value={progress} variant="fog" />
+          </div>
+          <div>
+            <Label>Hologram</Label>
+            <Progress value={progress} variant="hologram" />
+          </div>
+          <div className="flex gap-2 mt-4">
+            <Button onClick={() => setProgress(Math.max(0, progress - 10))}>Decrease</Button>
+            <Button onClick={() => setProgress(Math.min(100, progress + 10))}>Increase</Button>
           </div>
         </div>
       </ComponentSection>
 
-      {/* Radio Group */}
-      <ComponentSection title="Radio Group">
-        <RadioGroup defaultValue="option-one">
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="option-one" id="option-one" />
-            <Label htmlFor="option-one">Option One</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="option-two" id="option-two" />
-            <Label htmlFor="option-two">Option Two</Label>
-          </div>
-        </RadioGroup>
+      {/* Radio Group Variants */}
+      <ComponentSection title="Radio Group Variants">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <RadioGroup defaultValue="r1">
+            <Label className="mb-2">Default</Label>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="r1" id="r1" />
+              <Label htmlFor="r1">Option</Label>
+            </div>
+          </RadioGroup>
+          <RadioGroup defaultValue="r2">
+            <Label className="mb-2">Metal</Label>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="r2" id="r2" variant="metal" />
+              <Label htmlFor="r2">Option</Label>
+            </div>
+          </RadioGroup>
+          <RadioGroup defaultValue="r3">
+            <Label className="mb-2">Sandstorm</Label>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="r3" id="r3" variant="sandstorm" />
+              <Label htmlFor="r3">Option</Label>
+            </div>
+          </RadioGroup>
+          <RadioGroup defaultValue="r4">
+            <Label className="mb-2">Smog</Label>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="r4" id="r4" variant="smog" />
+              <Label htmlFor="r4">Option</Label>
+            </div>
+          </RadioGroup>
+          <RadioGroup defaultValue="r5">
+            <Label className="mb-2">Fog</Label>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="r5" id="r5" variant="fog" />
+              <Label htmlFor="r5">Option</Label>
+            </div>
+          </RadioGroup>
+          <RadioGroup defaultValue="r6">
+            <Label className="mb-2">Hologram</Label>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="r6" id="r6" variant="hologram" />
+              <Label htmlFor="r6">Option</Label>
+            </div>
+          </RadioGroup>
+        </div>
       </ComponentSection>
 
       {/* Resizable */}
@@ -830,25 +1011,63 @@ export default function ComponentShowcase() {
         </Sheet>
       </ComponentSection>
 
-      {/* Skeleton */}
-      <ComponentSection title="Skeleton">
-        <div className="space-y-2">
-          <Skeleton className="h-4 w-full" />
-          <Skeleton className="h-4 w-3/4" />
-          <Skeleton className="h-4 w-1/2" />
+      {/* Skeleton Variants */}
+      <ComponentSection title="Skeleton Variants">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <Label className="mb-2">Default</Label>
+            <Skeleton className="h-4 w-full" />
+          </div>
+          <div>
+            <Label className="mb-2">Metal</Label>
+            <Skeleton className="h-4 w-full" variant="metal" />
+          </div>
+          <div>
+            <Label className="mb-2">Sandstorm</Label>
+            <Skeleton className="h-4 w-full" variant="sandstorm" />
+          </div>
+          <div>
+            <Label className="mb-2">Smog</Label>
+            <Skeleton className="h-4 w-full" variant="smog" />
+          </div>
+          <div>
+            <Label className="mb-2">Fog</Label>
+            <Skeleton className="h-4 w-full" variant="fog" />
+          </div>
+          <div>
+            <Label className="mb-2">Hologram</Label>
+            <Skeleton className="h-4 w-full" variant="hologram" />
+          </div>
         </div>
       </ComponentSection>
 
-      {/* Slider */}
-      <ComponentSection title="Slider">
-        <div className="space-y-2">
-          <Slider
-            value={sliderValue}
-            onValueChange={setSliderValue}
-            max={100}
-            step={1}
-          />
-          <p className="text-sm text-muted-foreground">Value: {sliderValue[0]}</p>
+      {/* Slider Variants */}
+      <ComponentSection title="Slider Variants">
+        <div className="space-y-4">
+          <div>
+            <Label>Default</Label>
+            <Slider value={sliderValue} onValueChange={setSliderValue} max={100} step={1} />
+          </div>
+          <div>
+            <Label>Metal</Label>
+            <Slider defaultValue={[40]} max={100} variant="metal" />
+          </div>
+          <div>
+            <Label>Sandstorm</Label>
+            <Slider defaultValue={[60]} max={100} variant="sandstorm" />
+          </div>
+          <div>
+            <Label>Smog</Label>
+            <Slider defaultValue={[30]} max={100} variant="smog" />
+          </div>
+          <div>
+            <Label>Fog</Label>
+            <Slider defaultValue={[70]} max={100} variant="fog" />
+          </div>
+          <div>
+            <Label>Hologram</Label>
+            <Slider defaultValue={[50]} max={100} variant="hologram" />
+          </div>
         </div>
       </ComponentSection>
 
@@ -857,11 +1076,33 @@ export default function ComponentShowcase() {
         <Spinner />
       </ComponentSection>
 
-      {/* Switch */}
-      <ComponentSection title="Switch">
-        <div className="flex items-center space-x-2">
-          <Switch id="airplane-mode" />
-          <Label htmlFor="airplane-mode">Airplane Mode</Label>
+      {/* Switch Variants */}
+      <ComponentSection title="Switch Variants">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="flex items-center space-x-2">
+            <Switch id="sw-default" />
+            <Label htmlFor="sw-default">Default</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Switch id="sw-metal" variant="metal" />
+            <Label htmlFor="sw-metal">Metal</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Switch id="sw-sandstorm" variant="sandstorm" />
+            <Label htmlFor="sw-sandstorm">Sandstorm</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Switch id="sw-smog" variant="smog" />
+            <Label htmlFor="sw-smog">Smog</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Switch id="sw-fog" variant="fog" />
+            <Label htmlFor="sw-fog">Fog</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Switch id="sw-hologram" variant="hologram" />
+            <Label htmlFor="sw-hologram">Hologram</Label>
+          </div>
         </div>
       </ComponentSection>
 
@@ -890,20 +1131,76 @@ export default function ComponentShowcase() {
         </Table>
       </ComponentSection>
 
-      {/* Tabs */}
-      <ComponentSection title="Tabs">
-        <Tabs defaultValue="account" className="w-full">
-          <TabsList>
-            <TabsTrigger value="account">Account</TabsTrigger>
-            <TabsTrigger value="password">Password</TabsTrigger>
-          </TabsList>
-          <TabsContent value="account" className="space-y-4">
-            <p>Make changes to your account here.</p>
-          </TabsContent>
-          <TabsContent value="password" className="space-y-4">
-            <p>Change your password here.</p>
-          </TabsContent>
-        </Tabs>
+      {/* Textarea Variants */}
+      <ComponentSection title="Textarea Variants">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <Label>Default</Label>
+            <Textarea placeholder="Default glassmorphism textarea" />
+          </div>
+          <div>
+            <Label>Metal</Label>
+            <Textarea variant="metal" placeholder="Brushed metal textarea" />
+          </div>
+          <div>
+            <Label>Sandstorm</Label>
+            <Textarea variant="sandstorm" placeholder="Desert dust textarea" />
+          </div>
+          <div>
+            <Label>Smog</Label>
+            <Textarea variant="smog" placeholder="Industrial haze textarea" />
+          </div>
+          <div>
+            <Label>Fog</Label>
+            <Textarea variant="fog" placeholder="Ethereal mist textarea" />
+          </div>
+          <div>
+            <Label>Hologram</Label>
+            <Textarea variant="hologram" placeholder="Iridescent textarea" />
+          </div>
+        </div>
+      </ComponentSection>
+
+      {/* Tabs Variants */}
+      <ComponentSection title="Tabs Variants">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <Label className="mb-2">Default</Label>
+            <Tabs defaultValue="a" variant="default">
+              <TabsList><TabsTrigger value="a">Tab 1</TabsTrigger><TabsTrigger value="b">Tab 2</TabsTrigger></TabsList>
+            </Tabs>
+          </div>
+          <div>
+            <Label className="mb-2">Metal</Label>
+            <Tabs defaultValue="a" variant="metal">
+              <TabsList><TabsTrigger value="a">Tab 1</TabsTrigger><TabsTrigger value="b">Tab 2</TabsTrigger></TabsList>
+            </Tabs>
+          </div>
+          <div>
+            <Label className="mb-2">Sandstorm</Label>
+            <Tabs defaultValue="a" variant="sandstorm">
+              <TabsList><TabsTrigger value="a">Tab 1</TabsTrigger><TabsTrigger value="b">Tab 2</TabsTrigger></TabsList>
+            </Tabs>
+          </div>
+          <div>
+            <Label className="mb-2">Smog</Label>
+            <Tabs defaultValue="a" variant="smog">
+              <TabsList><TabsTrigger value="a">Tab 1</TabsTrigger><TabsTrigger value="b">Tab 2</TabsTrigger></TabsList>
+            </Tabs>
+          </div>
+          <div>
+            <Label className="mb-2">Fog</Label>
+            <Tabs defaultValue="a" variant="fog">
+              <TabsList><TabsTrigger value="a">Tab 1</TabsTrigger><TabsTrigger value="b">Tab 2</TabsTrigger></TabsList>
+            </Tabs>
+          </div>
+          <div>
+            <Label className="mb-2">Hologram</Label>
+            <Tabs defaultValue="a" variant="hologram">
+              <TabsList><TabsTrigger value="a">Tab 1</TabsTrigger><TabsTrigger value="b">Tab 2</TabsTrigger></TabsList>
+            </Tabs>
+          </div>
+        </div>
       </ComponentSection>
 
       {/* Textarea */}
@@ -911,24 +1208,39 @@ export default function ComponentShowcase() {
         <Textarea placeholder="Type your message here." />
       </ComponentSection>
 
-      {/* Toggle & Toggle Group */}
-      <ComponentSection title="Toggle & Toggle Group">
-        <div className="space-y-4">
-          <Toggle aria-label="Toggle italic">
-            <Mail className="h-4 w-4" />
-          </Toggle>
+      {/* Toggle Variants */}
+      <ComponentSection title="Toggle Variants">
+        <div className="flex flex-wrap gap-2 mb-4">
+          <Toggle aria-label="Default"><Mail className="h-4 w-4" /></Toggle>
+          <Toggle variant="metal" aria-label="Metal"><Mail className="h-4 w-4" /></Toggle>
+          <Toggle variant="sandstorm" aria-label="Sandstorm"><Mail className="h-4 w-4" /></Toggle>
+          <Toggle variant="smog" aria-label="Smog"><Mail className="h-4 w-4" /></Toggle>
+          <Toggle variant="fog" aria-label="Fog"><Mail className="h-4 w-4" /></Toggle>
+          <Toggle variant="hologram" aria-label="Hologram"><Mail className="h-4 w-4" /></Toggle>
+        </div>
 
-          <ToggleGroup type="single">
-            <ToggleGroupItem value="left" aria-label="Align left">
-              <Home className="h-4 w-4" />
-            </ToggleGroupItem>
-            <ToggleGroupItem value="center" aria-label="Align center">
-              <FileText className="h-4 w-4" />
-            </ToggleGroupItem>
-            <ToggleGroupItem value="right" aria-label="Align right">
-              <MessageSquare className="h-4 w-4" />
-            </ToggleGroupItem>
-          </ToggleGroup>
+        <div className="flex flex-wrap gap-4">
+          <div>
+            <Label className="mb-2 block">Default Group</Label>
+            <ToggleGroup type="single" variant="default">
+              <ToggleGroupItem value="a"><Home className="h-4 w-4" /></ToggleGroupItem>
+              <ToggleGroupItem value="b"><FileText className="h-4 w-4" /></ToggleGroupItem>
+            </ToggleGroup>
+          </div>
+          <div>
+            <Label className="mb-2 block">Metal Group</Label>
+            <ToggleGroup type="single" variant="metal">
+              <ToggleGroupItem value="a"><Home className="h-4 w-4" /></ToggleGroupItem>
+              <ToggleGroupItem value="b"><FileText className="h-4 w-4" /></ToggleGroupItem>
+            </ToggleGroup>
+          </div>
+          <div>
+            <Label className="mb-2 block">Hologram Group</Label>
+            <ToggleGroup type="single" variant="hologram">
+              <ToggleGroupItem value="a"><Home className="h-4 w-4" /></ToggleGroupItem>
+              <ToggleGroupItem value="b"><FileText className="h-4 w-4" /></ToggleGroupItem>
+            </ToggleGroup>
+          </div>
         </div>
       </ComponentSection>
 
