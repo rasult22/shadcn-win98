@@ -5,12 +5,15 @@ import Dashboard from './pages/Dashboard'
 import Sample from './pages/Sample'
 import ComingSoon from './pages/ComingSoon'
 import ComponentShowcase from './pages/ComponentShowcase'
+import Portfolio from './pages/Portfolio'
+
 
 export default function Router() {
     return (
         <Routes>
             <Route element={<AppLayout />}>
                 <Route path="" element={<Dashboard />} />
+                <Route path="portfolio" element={<Portfolio />} />
                 <Route path="components-showcase" element={<ComponentShowcase />} />
                 <Route path="pages">
                     <Route path="sample" element={<Sample />} />
