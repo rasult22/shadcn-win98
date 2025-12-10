@@ -58,12 +58,12 @@ export default function Portfolio() {
       {/* About/Skills Section */}
       <section id="about" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-12 text-center [text-shadow:0_0_15px_var(--secondary)]">
+          <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-12 text-center text-glow-secondary">
             About <span className="text-secondary">Me</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card>
+            <Card variant="smog">
               <CardHeader>
                 <CardTitle>Who I Am</CardTitle>
                 <CardDescription>Innovation-driven developer</CardDescription>
@@ -77,21 +77,21 @@ export default function Portfolio() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card variant="fog">
               <CardHeader>
                 <CardTitle>Core Skills</CardTitle>
                 <CardDescription>Technologies I master</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="default">React</Badge>
-                  <Badge variant="secondary">TypeScript</Badge>
-                  <Badge variant="default">Node.js</Badge>
-                  <Badge variant="secondary">Next.js</Badge>
-                  <Badge variant="default">Tailwind CSS</Badge>
-                  <Badge variant="secondary">PostgreSQL</Badge>
-                  <Badge variant="default">GraphQL</Badge>
-                  <Badge variant="secondary">Docker</Badge>
+                  <Badge variant="hologram">React</Badge>
+                  <Badge variant="metal">TypeScript</Badge>
+                  <Badge variant="hologram">Node.js</Badge>
+                  <Badge variant="metal">Next.js</Badge>
+                  <Badge variant="hologram">Tailwind CSS</Badge>
+                  <Badge variant="metal">PostgreSQL</Badge>
+                  <Badge variant="hologram">GraphQL</Badge>
+                  <Badge variant="metal">Docker</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -104,15 +104,15 @@ export default function Portfolio() {
       {/* Projects Section */}
       <section id="projects" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-12 text-center [text-shadow:0_0_15px_var(--accent)]">
+          <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-12 text-center text-glow-accent">
             Featured <span className="text-accent">Projects</span>
           </h2>
           
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <Card>
+            <Card variant="hologram">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <Badge variant="default">Live</Badge>
+                  <Badge variant="hologram">Live</Badge>
                   <Badge variant="outline">Open Source</Badge>
                 </div>
                 <CardTitle>Cyberpunk UI</CardTitle>
@@ -123,16 +123,16 @@ export default function Portfolio() {
                   A complete UI library with neon aesthetics and modern components.
                 </p>
                 <div className="flex gap-2">
-                  <Button size="sm" variant="outline">Demo</Button>
+                  <Button size="sm" variant="hologram">Demo</Button>
                   <Button size="sm" variant="ghost">GitHub</Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card variant="metal">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <Badge variant="secondary">Production</Badge>
+                  <Badge variant="metal">Production</Badge>
                   <Badge variant="outline">Client</Badge>
                 </div>
                 <CardTitle>NeoCommerce</CardTitle>
@@ -143,13 +143,13 @@ export default function Portfolio() {
                   Modern e-commerce solution with real-time inventory and AI recommendations.
                 </p>
                 <div className="flex gap-2">
-                  <Button size="sm" variant="outline">Visit</Button>
+                  <Button size="sm" variant="metal">Visit</Button>
                   <Button size="sm" variant="ghost">Case Study</Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card variant="sandstorm">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge variant="destructive">Beta</Badge>
